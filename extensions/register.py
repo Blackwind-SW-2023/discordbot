@@ -3,6 +3,19 @@ import hikari
 import random
 import discord
 from datetime import date
+import bcrypt
+import sqlite3
+
+def register_user(user_id: int, password: str):
+    hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+    
+    conn = sqlite3.connect('bot.db')
+    c = conn.cursor()
+    
+    c.execute("INSERT INTO users (user_id, hashed_password) VALUES (?, ?)", (user_id, hashed_password))
+    
+    conn.commit()
+    conn.close()
 
 plugin = lightbulb.Plugin('register')
 
