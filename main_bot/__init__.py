@@ -1,2 +1,2 @@
-_token = "MTEyNjM2OTIyMzk5Njg4NzA2MA.GeSyCn.mul6mu710bjwpmh2hV7hTpj929ZvZWRhqqX7J8"
-GUILD_ID = 965131603602993172
+_token = "token"
+GUILD_ID = "id"
