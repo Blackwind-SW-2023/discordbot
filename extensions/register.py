@@ -28,6 +28,39 @@ def get_password(username: str):
     
     return user[0] if user else None
 
+def get_stud_num(username: str):
+    conn = sqlite3.connect('bot.db')
+    c = conn.cursor()
+    
+    c.execute("SELECT studnumber FROM studnumber WHERE username=?", (username,))
+    user = c.fetchone()
+    
+    conn.close()
+    
+    return user[0] if user else None
+
+def get_naver_id(username: str):
+    conn = sqlite3.connect('bot.db')
+    c = conn.cursor()
+    
+    c.execute("SELECT naver_id FROM naver_id WHERE username=?", (username,))
+    user = c.fetchone()
+    
+    conn.close()
+    
+    return user[0] if user else None
+
+def get_naver_pw(username: str):
+    conn = sqlite3.connect('bot.db')
+    c = conn.cursor()
+    
+    c.execute("SELECT naver_pw FROM naver_pw WHERE username=?", (username,))
+    user = c.fetchone()
+    
+    conn.close()
+    
+    return user[0] if user else None
+
 @plugin.command
 @lightbulb.command('등록', '아이디 비번을 등록합니다. 이는 사용자 수업 정보를 가져오기 위해 사용됩니다.', ephemeral=True)
 @lightbulb.implements(lightbulb.SlashCommand)
@@ -129,11 +162,14 @@ async def myinfo(ctx: lightbulb.Context):
     user_id = user.id
     
     registered_id = get_user_id(user_id)
-    registered_pw = get_password(user_id)
+    # registered_pw = get_password(user_id)
+    registered_st_num = get_stud_num(user_id)
+    registered_naverid = get_naver_id(user_id)
+    # registered_naverpw = get_naver_pw(user_id)
     
     embed = hikari.Embed(
         title=f"{user.username}",
-        description=f"registered id: {registered_id}\nregistered pw: {registered_pw}",
+        description=f"registered dgist id: {registered_id}\nregistered naver id: {registered_naverid}\nregistered student id: {registered_st_num}",
         color=hikari.Color(0x1ABC9C),  # You can choose a color that suits your preference
     )
     
