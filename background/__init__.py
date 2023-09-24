@@ -1,4 +1,4 @@
-_userid='dgistlogin'
-_userpw='komaruN12#$'
+_userid='id'
+_userpw='pw'
 
-_DRIVER_PATH = "/home/dgist/discord/dgist_discord/drivers/geckodriver"
+_DRIVER_PATH = "path"
