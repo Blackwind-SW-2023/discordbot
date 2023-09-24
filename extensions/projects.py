@@ -47,6 +47,8 @@ async def 과제(ctx: lightbulb.Context):
     username = ctx.author.id
     projects = fetch_user_projects(username)
     
+    if len(projects)==0: await ctx.respond("등록된 과제가 없습니다! 처음 진행하신다면 '!과제 업데이트'를 진행해주세요")
+    
     # For debugging
     print(f"Projects for {username}:")
     for project_name, deadline, course_name in projects:
