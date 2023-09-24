@@ -1,9 +1,9 @@
 import re, poplib, email
 from email.header import decode_header, make_header
-from background import _userid, _userpw
+# from background import _userid, _userpw
 
-userid=_userid
-userpw=_userpw
+userid='dgistlogin'
+userpw='komaruN12#$'
 
 poplib._MAXLINE = 20480
 
@@ -13,7 +13,7 @@ def is_auth_mail(message):
 
     return (fr == 'no-reply@dgist.ac.kr') and (subject == '2차 인증 코드')
 
-def get_auth_pop3():
+def get_auth_pop3(userid, userpw):
     # access to email server
     server = poplib.POP3_SSL('pop.naver.com',995)
     server.user(userid)

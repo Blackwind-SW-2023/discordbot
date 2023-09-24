@@ -11,11 +11,11 @@ def roll_dice(probability:float)->bool:
         return True
     return False
 
-@plugin.listener(hikari.GuildMessageCreateEvent)
-async def on_message_event(event):
-    # if roll_dice(5):
-    #     await event.message.respond("응 개강해")
-    print(event.content)
+# @plugin.listener(hikari.GuildMessageCreateEvent)
+# async def on_message_event(event):
+#     # if roll_dice(5):
+#     #     await event.message.respond("응 개강해")
+#     print(event.content)
 
 # @plugin.listener(hikari.GuildMessageDeleteEvent)
 # async def on_message_delete(event):

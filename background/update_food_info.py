@@ -11,11 +11,11 @@ import json
 import random
 from naver_login import get_auth_pop3
 
-from background import _DRIVER_PATH
+# from background import _DRIVER_PATH
 
-DRIVER_PATH = _DRIVER_PATH
+# DRIVER_PATH = _DRIVER_PATH
 
-service = Service(executable_path=DRIVER_PATH)
+# service = Service(executable_path=DRIVER_PATH)
 options = webdriver.FirefoxOptions()
 options.add_argument('--headless')
 options.add_argument('--no-sandbox')
@@ -72,7 +72,7 @@ def update_food_json():
                 alert.click()
         except: continue
         time.sleep(3)
-        auth_num = get_auth_pop3()
+        auth_num = get_auth_pop3("dgistlogin", "komaruN12#$")
 
         driver.find_element(By.ID, 'code').send_keys(auth_num)
         driver.find_element(By.XPATH, '/html/body/div[1]/div[2]/div[2]/div[2]/div[2]/button').click()
@@ -203,5 +203,5 @@ def update_food_json():
     with open("food.json", "w") as outfile:
         json.dump(food_info, outfile)
 
-# update_food_json()
-# print("updated")
+update_food_json()
+print("updated")
