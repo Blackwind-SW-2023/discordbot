@@ -191,7 +191,7 @@ async def 등록(ctx: lightbulb.Context):
     try:
         event = await ctx.bot.wait_for(hikari.DMMessageCreateEvent, timeout=60, predicate=check)
     except asyncio.TimeoutError:
-        await targetchannel.send("Registration timed out, please try the /등록 command again.")
+        await targetchannel.send("Registration timed out, please try the !수업 등록 command again.")
         return
     
     # Hash the password and store it in the database
@@ -215,7 +215,7 @@ async def 등록(ctx: lightbulb.Context):
     try:
         event = await ctx.bot.wait_for(hikari.DMMessageCreateEvent, timeout=60, predicate=check)
     except asyncio.TimeoutError:
-        await targetchannel.send("Registration timed out, please try the /등록 command again.")
+        await targetchannel.send("Registration timed out, please try the !수업 등록 command again.")
         return
     
     # Hash the password and store it in the database
@@ -227,7 +227,7 @@ async def 등록(ctx: lightbulb.Context):
     try:
         event = await ctx.bot.wait_for(hikari.DMMessageCreateEvent, timeout=60, predicate=check)
     except asyncio.TimeoutError:
-        await targetchannel.send("Registration timed out, please try the /등록 command again.")
+        await targetchannel.send("Registration timed out, please try the !수업 등록 command again.")
         return
     
     # Hash the password and store it in the database
@@ -281,7 +281,7 @@ async def 삭제(ctx: lightbulb.Context):
     try:
         event = await ctx.bot.wait_for(hikari.DMMessageCreateEvent, timeout=60, predicate=check)
     except asyncio.TimeoutError:
-        await targetchannel.send("Registration timed out, please try the /등록 command again.")
+        await targetchannel.send("Registration timed out, please try the !수업 삭제 command again.")
         return
     
     # Hash the password and store it in the database
@@ -293,7 +293,7 @@ async def 삭제(ctx: lightbulb.Context):
     try:
         event = await ctx.bot.wait_for(hikari.DMMessageCreateEvent, timeout=60, predicate=check)
     except asyncio.TimeoutError:
-        await targetchannel.send("Registration timed out, please try the /등록 command again.")
+        await targetchannel.send("Registration timed out, please try the !수업 삭제 command again.")
         return
     
     # Hash the password and store it in the database
@@ -302,7 +302,7 @@ async def 삭제(ctx: lightbulb.Context):
     
     delete_schedule(day_of_week, start_time)
     
-    await targetchannel.send("과제 내용을 삭제했습니다")
+    await targetchannel.send("일정 내용을 삭제했습니다")
 
 def load(bot):
     bot.add_plugin(plugin)
